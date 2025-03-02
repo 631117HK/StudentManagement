@@ -7,25 +7,18 @@ import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/student") // Base path for all student-related APIs
 
 public class Application {
 
 	@Autowired
 	private StudentRepository repository;
-	private String name = "EnamiKouji";
-	private String age = "37";
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
 	// GET: Retrieve student info
-	@GetMapping("/student")
-	public String getStudentInfo(@RequestParam String name) {
-		Student student = repository.searchByName("name");
-		return student.getName() + " " + student.getAge() + "歳";
-	}
+
 
 	// POST: Update student name and age
 	@PostMapping("/student")
@@ -33,30 +26,18 @@ public class Application {
 		repository.registerStudent(name, age);
 	}
 
-	// POST: Update only the student name
-	@PostMapping("/updateName")
-	public void updateStudentName(@RequestParam String name) {
-		this.name = name;
-	}
-
 	@GetMapping("/studentInfo")
-	public String getStudentInfo(){
-		//Student student = repository.searchByName("EnamiKouji");
-		//return student.getName() + " " + student.getAge() + "歳";
-		return name + " " + age + "歳";
+	public String getStudentInfo() {
+		Student student = repository.searchByName("kakarot");
+		return student.getName() + " " + student.getAge() + "歳";
+	}
+		@PatchMapping("/student")
+
+				public void updateStudentName(String name, int age) {
+			repository.updateStudent(name, age);
+		}
 	}
 
-    @PostMapping("/studentInfo")
-    public void setStudentInfo2(String name, String age) {
-		this.name = name;
-		this.age = age;
-	}
-
-    @PostMapping("/studentName")
-	public void updateStudentName2(String name){
-			this.name = name;
-}
-}
 
 
 
