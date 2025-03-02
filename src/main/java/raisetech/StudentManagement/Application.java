@@ -31,11 +31,11 @@ public class Application {
 		Student student = repository.searchByName("kakarot");
 		return student.getName() + " " + student.getAge() + "歳";
 	}
-		@PatchMapping("/student")
-
-				public void updateStudentName(String name, int age) {
-			repository.updateStudent(name, age);
-		}
+//		@PatchMapping("/student")
+//
+//				public void updateStudentName(String name, int age) {
+//			repository.updateStudent(name, age);
+//		}
 	}
 
 
