@@ -15,4 +15,5 @@ public interface StudentRepository {
 
     @Update("UPDATE student SET age = #{age} WHERE name = #{name}")
     void updateStudent(String name, int age);
+    //kadai//
 }
