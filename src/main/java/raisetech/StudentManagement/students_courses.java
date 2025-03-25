@@ -1,23 +1,17 @@
 package raisetech.StudentManagement;
 
 import lombok.Getter;
-import lombok.Lombok;
 import lombok.Setter;
-import org.apache.ibatis.annotations.Mapper;
 
 @Getter
 @Setter
+public class students_courses {
 
-public class Student {
-
-
-    private String name;
-    private int age;
-    private String id;
-    private String sex;
-    private String email;
-    private String kana_name;
-    private String nick_name;
+    private int id;
+    private int student_id;
+    private String course_name;
+    private String course_start_at;
+    private String course_end_at;
 
 //    public String getName() {
 //        return name;
@@ -34,6 +28,5 @@ public class Student {
 //    public void setAge(int age) {
 //        this.age = age;
 //    }
-    //test//
-}
 
+}
