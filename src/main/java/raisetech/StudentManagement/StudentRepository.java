@@ -31,4 +31,7 @@ public interface StudentRepository {
     List<students_courses> searchAll();
 
     Student searchByName(String kakarot);
+
+    @Select("SELECT * FROM students_courses")
+    List<students_courses> searchstudents_courses();
 }

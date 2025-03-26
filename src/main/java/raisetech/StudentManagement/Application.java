@@ -28,10 +28,10 @@ public class Application {
 	@PostMapping("/students_courses")
 	public void addCourse(
 			@RequestParam int studentId,
-			@RequestParam String courseName,
-			@RequestParam String courseStartAt,
-			@RequestParam String courseEndAt) {
-		repository.registerCourse(studentId, courseName, courseStartAt, courseEndAt);
+			@RequestParam String course_Name,
+			@RequestParam String course_Start_At,
+			@RequestParam String course_End_At) {
+		repository.registerCourse(studentId, course_Name, course_Start_At, course_End_At);
 	}
 
 	// Endpoint to get specific student information
@@ -45,10 +45,10 @@ public class Application {
 	}
 
 	// Endpoint to retrieve all student-course records
-	@GetMapping("/students_courses")
-	public List<students_courses> getAllCourses() {
+	@GetMapping("/students_coursesList")
+	public List<students_courses> getstudents_CoursesList() {
 		System.out.printf("テスト中");
-		return repository.searchAll();
+		return repository.searchstudents_courses();
 	}
 }
 
