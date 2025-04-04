@@ -3,18 +3,17 @@ package raisetech.StudentManagement;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class students_courses {
+public class StudentsCourses {
 
     private String id;
-    private String student_id;
-    private String course_name;
-    private LocalDateTime course_start_at;
-    private LocalDateTime course_end_at;
+    private String studentId;
+    private String courseName;
+    private LocalDateTime courseStartAt;
+    private LocalDateTime courseEndAt;
 
 //    public String getName() {
 //        return name;

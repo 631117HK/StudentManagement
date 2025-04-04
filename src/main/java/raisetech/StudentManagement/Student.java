@@ -16,8 +16,8 @@ public class Student {
     private String id;
     private String sex;
     private String email;
-    private String kana_name;
-    private String nick_name;
+    private String kanaName;
+    private String nickname;
 
 //    public String getName() {
 //        return name;

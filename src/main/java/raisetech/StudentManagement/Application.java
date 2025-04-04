@@ -46,9 +46,14 @@ public class Application {
 
 	// Endpoint to retrieve all student-course records
 	@GetMapping("/students_coursesList")
-	public List<students_courses> getstudents_CoursesList() {
-		System.out.printf("テスト中");
-		return repository.searchstudents_courses();
+	public List<StudentsCourses> getstudents_CoursesList() {
+		System.out.println("テスト中");
+		return repository.searchStudentsCourses();
+	}
+
+	@GetMapping("/studentList")
+	public List<Student> getStudentList() {
+		return repository.search2();
 	}
 }
 

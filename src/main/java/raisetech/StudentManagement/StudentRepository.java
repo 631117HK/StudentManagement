@@ -1,7 +1,5 @@
 package raisetech.StudentManagement;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -10,6 +8,9 @@ import java.util.List;
 
 @Mapper
 public interface StudentRepository {
+
+    @Select("SELECT * FROM students")
+    List<Student> search2();
 
     @Select("SELECT * FROM students_courses WHERE name = #{name}")
     Student search(String name);
@@ -22,16 +23,16 @@ public interface StudentRepository {
 
     // Corrected method for retrieving student data
     @Select("SELECT * FROM students_courses")
-    List<students_courses> getStudentList();
+    List<StudentsCourses> getStudentList();
 
     @Insert("INSERT INTO students_courses (student_id, course_name, course_start_at, course_end_at) VALUES (#{studentId}, #{courseName}, #{courseStartAt}, #{courseEndAt})")
     void registerCourse(int studentId, String courseName, String courseStartAt, String courseEndAt);
 
     @Select("SELECT * FROM students_courses")
-    List<students_courses> searchAll();
+    List<StudentsCourses> searchAll();
 
     Student searchByName(String kakarot);
 
     @Select("SELECT * FROM students_courses")
-    List<students_courses> searchstudents_courses();
+    List<StudentsCourses> searchStudentsCourses();
 }
