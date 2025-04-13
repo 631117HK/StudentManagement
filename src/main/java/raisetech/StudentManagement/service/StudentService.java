@@ -7,7 +7,6 @@ import raisetech.StudentManagement.data.StudentsCourses;
 import raisetech.StudentManagement.repository.StudentRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -15,34 +14,20 @@ public class StudentService {
     private StudentRepository repository;
 
     @Autowired
-    public StudentService(StudentRepository repository) {
+    public StudentService(StudentService service) {
         this.repository = repository;
     }
 
     public List<Student> searchStudentList() {
-        // Fetch all students
-        List<Student> allStudents = repository.search2();
+        // You can perform additional processing here if needed.
+        return repository.search2();
+    }
 
-        // Filter students whose age is in their 30s (30 to 39)
-        List<Student> filteredStudents = allStudents.stream()
-                .filter(student -> student.getAge() >= 30 && student.getAge() < 40)
-                .collect(Collectors.toList());
-
-        // Return the filtered list to the controller
-        return filteredStudents;
+    private List<Student> searchList() {
     }
 
     public List<StudentsCourses> searchStudentsCoursesList() {
-        // Fetch all students' course information
-        List<StudentsCourses> allCourses = repository.searchStudentsCourses();
-
-        // Filter for "Java course" only
-        List<StudentsCourses> filteredCourses = allCourses.stream()
-                .filter(course -> "Java course".equals(course.getCourseName()))
-                .collect(Collectors.toList());
-
-        // Return the filtered list to the controller
-        System.out.println("Filtered courses ready for controller.");
-        return filteredCourses;
+        System.out.println("テスト中");
+        return repository.searchStudentsCourses();
     }
 }
