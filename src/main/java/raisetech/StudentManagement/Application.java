@@ -28,10 +28,10 @@ public class Application {
 	@PostMapping("/students_courses")
 	public void addCourse(
 			@RequestParam int studentId,
-			@RequestParam String course_Name,
-			@RequestParam String course_Start_At,
-			@RequestParam String course_End_At) {
-		repository.registerCourse(studentId, course_Name, course_Start_At, course_End_At);
+			@RequestParam String courseName,
+			@RequestParam String courseStartAt,
+			@RequestParam String courseEndAt) {
+		repository.registerCourse(studentId, courseName, courseStartAt, courseEndAt);
 	}
 
 	// Endpoint to get specific student information
