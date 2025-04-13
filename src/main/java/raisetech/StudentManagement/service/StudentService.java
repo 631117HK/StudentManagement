@@ -24,6 +24,7 @@ public class StudentService {
     }
 
     private List<Student> searchList() {
+    return repository.search()
     }
 
     public List<StudentsCourses> searchStudentsCoursesList() {
