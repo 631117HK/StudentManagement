@@ -4,19 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
+import raisetech.StudentManagement.data.Student;
+import raisetech.StudentManagement.data.StudentsCourses;
+import raisetech.StudentManagement.repository.StudentRepository;
 
 import java.util.List;
 
 @SpringBootApplication
-@RestController
 public class Application {
 
-	@Autowired
-	private StudentRepository repository; // Repository for database operations
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+	private Application repository;
 
 	// Endpoint to register a new student
 	@PostMapping("/students")
@@ -34,6 +32,10 @@ public class Application {
 		repository.registerCourse(studentId, courseName, courseStartAt, courseEndAt);
 	}
 
+	private void registerCourse(int studentId, String courseName, String courseStartAt, String courseEndAt) {
+
+	}
+
 	// Endpoint to get specific student information
 	@GetMapping("/students")
 	public String getStudentInfo() {
@@ -44,6 +46,10 @@ public class Application {
 		return student.getName() + " " + student.getAge() + "歳";
 	}
 
+	private Student searchByName(String kakarot) {
+		return null;
+	}
+
 	// Endpoint to retrieve all student-course records
 	@GetMapping("/students_coursesList")
 	public List<StudentsCourses> getstudents_CoursesList() {
@@ -51,9 +57,22 @@ public class Application {
 		return repository.searchStudentsCourses();
 	}
 
+	private List<StudentsCourses> searchStudentsCourses() {
+		return null;
+	}
+
 	@GetMapping("/studentList")
 	public List<Student> getStudentList() {
 		return repository.search2();
 	}
+
+	private List<Student> search2() {
+
+        return List.of();
+    }
+
+	public void setRepository(Application repository) {
+        this.repository = repository;
+    }
 }
 

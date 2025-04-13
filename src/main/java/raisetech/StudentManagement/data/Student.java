@@ -1,19 +1,21 @@
-package raisetech.StudentManagement;
+package raisetech.StudentManagement.data;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
-public class StudentsCourses {
 
+public class Student {
+
+
+    private String name;
+    private int age;
     private String id;
-    private String studentId;
-    private String courseName;
-    private LocalDateTime courseStartAt;
-    private LocalDateTime courseEndAt;
+    private String sex;
+    private String email;
+    private String kanaName;
+    private String nickname;
 
 //    public String getName() {
 //        return name;
@@ -30,5 +32,6 @@ public class StudentsCourses {
 //    public void setAge(int age) {
 //        this.age = age;
 //    }
-
+    //test//
 }
+

@@ -1,14 +1,26 @@
-package raisetech.StudentManagement;
+package raisetech.StudentManagement.repository;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import raisetech.StudentManagement.data.Student;
+import raisetech.StudentManagement.data.StudentsCourses;
+
 import java.util.List;
+/**受講生を扱うリポジトリ
+  *
+  *　全体検索や単一条件での検索、コース情報の検索が行えるクラスです。
+  *
+  */
 
 @Mapper
 public interface StudentRepository {
-
+    /**
+      *
+      * @return 全件検索した受講生情報の一覧
+      *
+      */
     @Select("SELECT * FROM students")
     List<Student> search2();
 
