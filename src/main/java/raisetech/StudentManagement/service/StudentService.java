@@ -7,28 +7,30 @@ import raisetech.StudentManagement.data.StudentsCourses;
 import raisetech.StudentManagement.repository.StudentRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
 
-    private StudentRepository repository;
+    private final StudentRepository repository;
 
     @Autowired
-    public StudentService(StudentService service) {
+    public StudentService(StudentRepository repository) {
         this.repository = repository;
     }
 
-    public List<Student> searchStudentList() {
-        // You can perform additional processing here if needed.
-        return repository.search2();
+    // 1. 年齢が30歳以上の学生（Student）
+    public List<Student> getStudentsOver30() {
+        return repository.findAll().stream()
+                .filter(student -> student.getAge() >= 30)
+                .collect(Collectors.toList());
     }
 
-    private List<Student> searchList() {
-    return repository.search()
+    // 2. Javaコースを受講している学生（StudentsCourses）
+    public List<StudentsCourses> getJavaCourseStudents() {
+        return repository.searchStudentsCourses().stream()
+                .filter(sc -> sc.getCourseName().equalsIgnoreCase("Java"))
+                .collect(Collectors.toList());
     }
 
-    public List<StudentsCourses> searchStudentsCoursesList() {
-        System.out.println("テスト中");
-        return repository.searchStudentsCourses();
-    }
 }
