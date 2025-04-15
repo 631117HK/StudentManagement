@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 public  class StudentController {
     private StudentService service;
+
     @Autowired
     public StudentController(StudentService service) {
         this.service = service;
@@ -28,6 +29,4 @@ public  class StudentController {
     public List<Student> getStudentList() {
         return service.searchStudentList();
     }
-
-
 }

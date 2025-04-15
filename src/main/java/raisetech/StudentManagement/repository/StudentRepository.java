@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Update;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentsCourses;
 
+import java.util.Collection;
 import java.util.List;
 /**受講生を扱うリポジトリ
   *
@@ -49,4 +50,6 @@ public interface StudentRepository {
     List<StudentsCourses> searchStudentsCourses();
 
     List<Student> search();
+
+    List<Student> findAll();
 }

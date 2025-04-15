@@ -17,21 +17,20 @@ public class Student {
     private String kanaName;
     private String nickname;
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    private void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public int getAge() {
-//        return age;
-//    }
-//
-//    public void setAge(int age) {
-//        this.age = age;
-//    }
-    //test//
-}
 
+    public String getName() {
+        return name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
