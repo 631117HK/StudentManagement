@@ -1,9 +1,21 @@
-package raisetech.StudentManagement;
+package raisetech.StudentManagement.data;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 
 public class Student {
 
+
     private String name;
     private int age;
+    private String id;
+    private String sex;
+    private String email;
+    private String kanaName;
+    private String nickname;
 
 
     public String getName() {
@@ -22,4 +34,3 @@ public class Student {
         this.age = age;
     }
 }
-
